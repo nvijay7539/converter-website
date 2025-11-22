@@ -6,46 +6,12 @@
 <title>Multiple Image Converter — ConvertFreeTools</title>
 <link rel="stylesheet" href="css/style.css">
 
-<!-- JSZip and FileSaver -->
+<!-- JSZip and FileSaver for ZIP download -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.11.0/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-<script>
-// JS function inside the same page for testing
-function convertMultipleImagesToZip(fileInputId, format){
-    const files = document.getElementById(fileInputId).files;
-    if (!files.length) { alert('Please select one or more images.'); return; }
-
-    const zip = new JSZip();
-    let processed = 0;
-
-    Array.from(files).forEach((file, i) => {
-        const reader = new FileReader();
-        reader.onload = function(e){
-            const img = new Image();
-            img.onload = function(){
-                const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img,0,0);
-                canvas.toBlob(function(blob){
-                    zip.file('image_' + (i+1) + '.' + format, blob);
-                    processed++;
-                    if(processed === files.length){
-                        zip.generateAsync({type:"blob"}).then(function(content){
-                            saveAs(content, 'converted_images.zip');
-                        });
-                    }
-                }, 'image/'+format);
-            }
-            img.src = e.target.result;
-        }
-        reader.readAsDataURL(file);
-    });
-}
-</script>
-
+<!-- Scripts -->
+<script src="js/scripts.js"></script>
 </head>
 <body>
 <header>
@@ -59,7 +25,7 @@ function convertMultipleImagesToZip(fileInputId, format){
   <label>Choose format</label>
   <select id="multiFormat">
     <option value="png">PNG</option>
-    <option value="jpeg">JPG</option>
+    <option value="jpeg">JPEG</option>
     <option value="webp">WebP</option>
   </select>
 

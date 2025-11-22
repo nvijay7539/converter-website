@@ -1,1 +1,13 @@
-body{font-family:Arial,sans-serif;}
+body { font-family: Arial,sans-serif; margin:0; padding:0; background:#f6f8f9; color:#222; }
+header { background:#0ea5a4; color:white; padding:28px 18px; text-align:center; }
+h1 { margin:0; font-size:1.6rem; }
+main { max-width:980px; margin:28px auto; padding:18px; }
+label { display:block; margin-top:10px; font-weight:600; }
+input[type=file], select, input[type=number], button { width:100%; padding:10px; margin-top:8px; border-radius:8px; border:1px solid #e6eef0; box-sizing:border-box; }
+button { background:#0ea5a4; color:white; border:none; cursor:pointer; }
+button:hover { opacity:0.95; transform:translateY(-1px); }
+.preview { max-width:100%; margin-top:12px; border-radius:6px; }
+.download-link { display:inline-block; margin-top:10px; padding:8px 12px; background:#0f1724; color:#fff; text-decoration:none; border-radius:6px; }
+.container { background:white; padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(2,6,23,0.04); }
+.ad-placeholder { background:#f1f5f9; border:2px dashed #cbd5e1; padding:18px; color:#475569; border-radius:8px; text-align:center; margin:12px 0; }
+.small { font-size:0.9rem; color:#475569; }

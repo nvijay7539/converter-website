@@ -1,1 +1,34 @@
-<!DOCTYPE html><html><head><title>Image Resize</title></head><body><h1>Image Resize</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resize Image — ConvertFreeTools</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Resize Image</h1>
+</header>
+
+<main class="container">
+  <label>Select image to resize</label>
+  <input type="file" id="resizeFile" accept="image/*">
+
+  <label>Width (px)</label>
+  <input type="number" id="resizeWidth" placeholder="e.g. 800">
+
+  <label>Height (px)</label>
+  <input type="number" id="resizeHeight" placeholder="e.g. 600">
+
+  <button onclick="resizeImageOnPage('resizeFile','resizeWidth','resizeHeight','resizeDownload','resizePreview')">Resize Image</button>
+
+  <a id="resizeDownload" class="download-link" style="display:none;">Download</a>
+  <img id="resizePreview" class="preview" style="display:none;" alt="Resized preview">
+
+  <div style="margin-top:12px;"><a href="index.html">← Back to Home</a></div>
+</main>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multiple Image Converter — ConvertFreeTools</title>
 <link rel="stylesheet" href="css/style.css">
+
+<!-- JSZip and FileSaver for ZIP downloads -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.11.0/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+<script src="js/scripts.js"></script>
 </head>
 <body>
 <header>
@@ -22,13 +28,11 @@
     <option value="webp">WebP</option>
   </select>
 
-  <button onclick="convertMultipleImagesOnPage('multiFiles', document.getElementById('multiFormat').value, 'multiContainer')">Convert All</button>
-
-  <div id="multiContainer" style="margin-top:12px;"></div>
+  <button onclick="convertMultipleImagesOnPage('multiFiles', document.getElementById('multiFormat').value)">
+    Convert & Download ZIP
+  </button>
 
   <div style="margin-top:12px;"><a href="index.html">← Back to Home</a></div>
 </main>
-
-<script src="js/scripts.js"></script>
 </body>
 </html>

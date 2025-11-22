@@ -1,4 +1,4 @@
-// Single image convert
+// ---------- Single Image Convert ----------
 function readImageFile(file, onloadImg){
     const reader = new FileReader();
     reader.onload = function(e){
@@ -29,7 +29,7 @@ function convertImageOnPage(fileInputId, format, downloadId, previewId){
     });
 }
 
-// Resize image
+// ---------- Resize Image ----------
 function resizeImageOnPage(fileInputId, widthId, heightId, downloadId, previewId){
     const file = document.getElementById(fileInputId).files[0];
     const w = parseInt(document.getElementById(widthId).value);
@@ -52,15 +52,15 @@ function resizeImageOnPage(fileInputId, widthId, heightId, downloadId, previewId
     });
 }
 
-// Multiple images convert with ZIP
-function convertMultipleImagesOnPage(fileInputId, format){
+// ---------- Multiple Image Convert with ZIP ----------
+function convertMultipleImagesToZip(fileInputId, format){
     const files = document.getElementById(fileInputId).files;
-    if (!files.length) { alert('Select one or more images'); return; }
+    if (!files.length) { alert('Please select one or more images.'); return; }
 
     const zip = new JSZip();
     let processed = 0;
 
-    Array.from(files).forEach((file, i) => {
+    Array.from(files).forEach((file, i)=>{
         const reader = new FileReader();
         reader.onload = function(e){
             const img = new Image();
@@ -74,8 +74,8 @@ function convertMultipleImagesOnPage(fileInputId, format){
                     zip.file('image_'+(i+1)+'.'+format, blob);
                     processed++;
                     if(processed === files.length){
-                        zip.generateAsync({type:"blob"}).then(function(content){
-                            saveAs(content, 'converted_images.zip');
+                        zip.generateAsync({type:"blob"}).then(content=>{
+                            saveAs(content,'converted_images.zip');
                         });
                     }
                 }, 'image/'+format);

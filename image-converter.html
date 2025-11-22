@@ -1,1 +1,35 @@
-<!DOCTYPE html><html><head><title>Image Converter</title></head><body><h1>Image Converter</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Converter — ConvertFreeTools</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Image Converter</h1>
+</header>
+
+<main class="container">
+  <label>Select an image</label>
+  <input type="file" id="imgFile" accept="image/*">
+
+  <label>Choose format</label>
+  <select id="imgFormat">
+    <option value="png">PNG</option>
+    <option value="jpeg">JPG</option>
+    <option value="webp">WebP</option>
+  </select>
+
+  <button onclick="convertImageOnPage('imgFile', document.getElementById('imgFormat').value, 'imgDownload', 'imgPreview')">Convert Image</button>
+
+  <a id="imgDownload" class="download-link" style="display:none;">Download</a>
+  <img id="imgPreview" class="preview" style="display:none;" alt="Preview">
+
+  <div style="margin-top:12px;"><a href="index.html">← Back to Home</a></div>
+</main>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

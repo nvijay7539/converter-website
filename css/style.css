@@ -1,5 +1,5 @@
 body { font-family: Times new roman,sans-serif; margin:0; padding:0; background:#f6f8f9; color:#222; }
-header { background:#0ea5a4; color:white; padding:28px 18px; text-align:center; }
+header { background:#fab005; color:white; padding:28px 18px; text-align:center; }
 h1 { margin:0; font-size:1.6rem; }
 main { max-width:980px; margin:28px auto; padding:18px; }
 label { display:block; margin-top:10px; font-weight:600; }
@@ -13,7 +13,7 @@ button:hover { opacity:0.95; transform:translateY(-1px); }
 .small { font-size:0.9rem; color:#475569; }
 .tool-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:18px; }
 .tool-card { background:white; border-radius:10px; padding:16px; box-shadow:0 4px 12px rgba(16,24,40,0.06); text-align:center; }
-.tool-card a { color:#0ea5a4; text-decoration:none; display:block; margin-top:10px; }
+.tool-card a { color:#fab005; text-decoration:none; display:block; margin-top:10px; }
 footer { background:#0f1724; color:#cbd5e1; padding:16px; text-align:center; margin-top:34px; }
 footer a { color:#93c5fd; text-decoration:none; margin:0 8px; }
 @media(max-width:640px){ header{padding:20px} main{padding:12px} }

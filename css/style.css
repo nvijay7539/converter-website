@@ -10,4 +10,10 @@ button:hover { opacity:0.95; transform:translateY(-1px); }
 .download-link { display:inline-block; margin-top:10px; padding:8px 12px; background:#0f1724; color:#fff; text-decoration:none; border-radius:6px; }
 .container { background:white; padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(2,6,23,0.04); }
 .ad-placeholder { background:#f1f5f9; border:2px dashed #cbd5e1; padding:18px; color:#475569; border-radius:8px; text-align:center; margin:12px 0; }
-.small { font-size:0.9rem; color:#475569; }
+.small { font-size:0.9rem; color:#475569; }
+.tool-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:18px; }
+.tool-card { background:white; border-radius:10px; padding:16px; box-shadow:0 4px 12px rgba(16,24,40,0.06); text-align:center; }
+.tool-card a { color:#0ea5a4; text-decoration:none; display:block; margin-top:10px; }
+footer { background:#0f1724; color:#cbd5e1; padding:16px; text-align:center; margin-top:34px; }
+footer a { color:#93c5fd; text-decoration:none; margin:0 8px; }
+@media(max-width:640px){ header{padding:20px} main{padding:12px} }

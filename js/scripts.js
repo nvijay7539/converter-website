@@ -55,25 +55,38 @@ function resizeImageOnPage(fileInputId, widthId, heightId, downloadId, previewId
 }
 
 // Multiple images convert
-function convertMultipleImagesOnPage(fileInputId, format, containerId){
-  const files = document.getElementById(fileInputId).files;
-  const container = document.getElementById(containerId);
-  container.innerHTML = '';
-  if(!files.length){ alert('Select one or more images'); return; }
-  Array.from(files).forEach((file, i) => {
-    readImageFile(file, function(img){
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width; canvas.height = img.height;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img,0,0);
-      canvas.toBlob(function(blob){
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'converted_'+(i+1)+'.'+format;
-        a.className = 'download-link';
-        a.textContent = 'Download '+(i+1);
-        container.appendChild(a);
-      }, 'image/'+format);
-    });
-  });
+function convertMultipleImagesOnPage(fileInputId, format, downloadZipId){
+    const files = document.getElementById(fileInputId).files;
+    if (!files.length) { alert('Select one or more images'); return; }
+
+    const zip = new JSZip();
+    let processed = 0;
+
+    Array.from(files).forEach((file, i) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+
+                canvas.toBlob(function(blob) {
+                    zip.file('image_' + (i+1) + '.' + format, blob);
+                    processed++;
+
+                    // Once all images processed, generate zip
+                    if (processed === files.length) {
+                        zip.generateAsync({type:"blob"}).then(function(content) {
+                            saveAs(content, 'converted_images.zip');
+                        });
+                    }
+                }, 'image/' + format);
+            }
+            img.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    });
 }
